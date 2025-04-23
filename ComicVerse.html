@@ -1,0 +1,473 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicVerse - El universo de los cómics</title>
+    <link rel="icon" href="favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div id="intro-animation" class="intro-animation">
+        <img src="loading-logo.png" alt="ComicVerse Logo" class="animated-logo expanded-logo">
+    </div>
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-12 text-center">
+                    <h1 class="main-title">ComicVerse</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid p-0">
+        <section id="home-section">
+            <div class="hero-section mb-5">
+                <div class="container hero-content text-center">
+                    <div class="comic-panel">
+                        <h2 class="mb-4">¡Bienvenido al universo de los cómics!</h2>
+                        <p class="lead">Explora las historias más emocionantes de tus héroes favoritos de Marvel y DC Comics.</p>
+                        <div class="d-flex justify-content-center flex-wrap mt-4">
+                            <button id="marvel-btn" class="comic-button marvel-button">
+                                <i class="fas fa-bolt me-2"></i> <span>Explorar Marvel</span>
+                            </button>
+                            <button id="dc-btn" class="comic-button dc-button">
+                                <i class="fas fa-shield-alt me-2"></i> <span>Explorar DC Comics</span>
+                            </button>
+                            <button id="stats-btn" class="comic-button mt-3 ms-2">
+                                <i class="fas fa-chart-bar me-2"></i> <span>Estadísticas</span>
+                            </button>
+                            <button id="favorites-btn" class="comic-button mt-3 ms-2">
+                                <i class="fas fa-heart me-2"></i> <span>Mis Favoritos</span>
+                            </button>
+                            <button id="toggle-dark-mode" class="comic-button mt-3 ms-2">
+                                <i class="fas fa-moon me-2"></i> <span>Modo Oscuro</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mb-5" id="continue-reading-option" style="display: none;">
+                <div class="scroll-container" id="continue-reading-scroll">
+                    <!-- Los elementos se generarán dinámicamente -->
+                </div>
+                <div id="continue-reading-pagination" class="pagination-container text-center mt-4"></div>
+            </div>
+
+            <div class="container mb-5">
+                <div class="comic-panel">
+                    <div class="comic-title-box">
+                        <h2>Destacados del Multiverso</h2>
+                    </div>
+                    <div id="featured-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="featured-carousel-inner">
+                            <!-- Los elementos del carrusel se generarán dinámicamente -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#featured-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#featured-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="characters-section" class="mb-5">
+            <div class="container">
+                <div class="comic-panel">
+                    <div class="comic-title-box">
+                        <h2>Personajes Icónicos</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="character-panel marvel-bg text-center">
+                                <h3 class="text-white">Marvel</h3>
+                                <div class="character-grid" id="marvel-characters-grid">
+                                    <!-- Los personajes de Marvel se generarán dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="character-panel dc-bg text-center">
+                                <h3 class="text-white">DC Comics</h3>
+                                <div class="character-grid" id="dc-characters-grid">
+                                    <!-- Los personajes de DC se generarán dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="marvel-comics" class="mb-5">
+            <div class="container">
+                <div class="comic-panel marvel-section">
+                    <button class="comic-button mt-4 mb-3" id="back-to-home-from-marvel">
+                        <i class="fas fa-home me-2"></i> <span>Volver al Menú Principal</span>
+                    </button>
+                    <div class="comic-title-box" style="background-color: var(--marvel-red); color: white;">
+                        <h2>Marvel Comics</h2>
+                    </div>
+                    <div class="search-bar mb-4">
+                        <div class="search-bar d-flex align-items-center">
+                            <button id="toggle-marvel-search" class="comic-button me-2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div style="display: flex;">
+                                <input type="text" id="marvel-search" class="form-control" placeholder="Buscar cómic de Marvel..." style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-grid" id="marvel-comics-grid">
+                        <!-- Los cómics se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div id="marvel-pagination" class="pagination-container text-center mt-4"></div>
+            </div>
+        </section>
+
+        <section id="dc-comics" class="mb-5">
+            <div class="container">
+                <div class="comic-panel dc-section">
+                    <button class="comic-button mt-4 mb-3" id="back-to-home-from-dc">
+                        <i class="fas fa-home me-2"></i> <span>Volver al Menú Principal</span>
+                    </button>
+                    <div class="comic-title-box" style="background-color: var(--dc-blue); color: white;">
+                        <h2>DC Comics</h2>
+                    </div>
+                    <div class="search-bar mb-4">
+                        <div class="search-bar d-flex align-items-center">
+                            <button id="toggle-dc-search" class="comic-button me-2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div style="display: flex;">
+                                <input type="text" id="dc-search" class="form-control" placeholder="Buscar cómic de DC..." style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-grid" id="dc-comics-grid">
+                        <!-- Los cómics se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div id="dc-pagination" class="pagination-container text-center mt-4"></div>
+            </div>
+        </section>
+
+        <section id="favorites-section" class="mb-5" style="display: none;">
+            <div class="container">
+                <div class="comic-panel">
+                    <button class="comic-button mt-4 mb-3" id="back-to-home-from-favorites">
+                        <i class="fas fa-home me-2"></i> <span>Volver al Menú Principal</span>
+                    </button>
+                    <div class="comic-title-box">
+                        <h2>Mis Favoritos</h2>
+                    </div>
+                    <div class="search-bar mb-4">
+                        <div class="search-bar d-flex align-items-center">
+                            <button id="toggle-favorites-search" class="comic-button me-2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div style="display: flex;">
+                                <input type="text" id="favorites-search" class="form-control" placeholder="Buscar en favoritos..." style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-grid" id="favorites-grid">
+                        <!-- Los cómics favoritos se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div id="favorites-pagination" class="pagination-container text-center mt-4"></div>
+            </div>
+        </section>
+
+        <section id="comic-detail" class="mb-5">
+            <div class="container">
+                <div class="comic-panel">
+                    <button class="comic-button mb-3" id="back-to-list">
+                        <i class="fas fa-arrow-left me-2"></i> Volver al listado
+                    </button>
+                    <div id="comic-detail-content">
+                        <!-- Los detalles del cómic se generarán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reading-page">
+            <div class="container-fluid p-0">
+                <div class="reading-container">
+                    <h2 class="text-center mb-4" id="reading-title" data-comic-id="" data-universe="" data-volume-name="">
+                        Título del Cómic
+                    </h2>
+                    <div id="comic-pages" class="horizontal-reading">
+                        <!-- Las páginas se generarán dinámicamente -->
+                    </div>
+                </div>
+                <div class="reading-controls">
+                    <button class="reading-control-btn" id="scroll-left-btn" aria-label="Desplazarse hacia la izquierda">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="reading-control-btn" id="scroll-right-btn" aria-label="Desplazarse hacia la derecha">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <span id="page-counter">Página 1 de 1</span>
+                    <button class="reading-control-btn" id="fullscreen-btn" aria-label="Pantalla completa">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="reading-control-btn" id="back-to-detail" aria-label="Volver a detalles">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="reading-control-btn" id="reading-home" aria-label="Volver al inicio">
+                        <i class="fas fa-home"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats-section" class="mb-5" style="display: none;">
+            <div class="container">
+                <div class="comic-panel">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button class="comic-button mt-4 mb-3" id="back-to-home-from-stats">
+                            <i class="fas fa-home me-2"></i> <span>Volver al Menú Principal</span>
+                        </button>
+                        <button class="comic-button mt-4 mb-3" id="reset-stats-btn">
+                            <i class="fas fa-trash me-2"></i> <span>Reiniciar Estadísticas</span>
+                        </button>
+                    </div>
+                    <div class="comic-title-box">
+                        <h2>Estadísticas de Lectura</h2>
+                    </div>
+                    <div class="row g-4">
+                        <!-- Tarjetas de estadísticas -->
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-book stat-icon"></i>
+                                <div>
+                                    <h3>Cómics Leídos</h3>
+                                    <p class="stat-value" id="total-comics-read">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-layer-group stat-icon"></i>
+                                <div>
+                                    <h3>Volúmenes Únicos</h3>
+                                    <p class="stat-value" id="unique-volumes-read">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <div>
+                                    <h3>Tiempo Total</h3>
+                                    <p class="stat-value" id="total-reading-time">00:00:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-day stat-icon"></i>
+                                <div>
+                                    <h3>Días Activos</h3>
+                                    <p class="stat-value" id="active-days">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-fire stat-icon"></i>
+                                <div>
+                                    <h3>Racha Actual</h3>
+                                    <p class="stat-value" id="current-streak">0 días</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-heart stat-icon"></i>
+                                <div>
+                                    <h3>Favoritos</h3>
+                                    <p class="stat-value" id="favorites-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-check-circle stat-icon"></i>
+                                <div>
+                                    <h3>Cómics Completados</h3>
+                                    <p class="stat-value" id="completed-comics">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-card">
+                                <i class="fas fa-book-open stat-icon"></i>
+                                <div>
+                                    <h3>Último Cómic</h3>
+                                    <p class="stat-value" id="last-comic">N/A</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-card">
+                                <i class="fas fa-chart-line stat-icon"></i>
+                                <div>
+                                    <h3>Cómic Más Leído</h3>
+                                    <p class="stat-value" id="most-read-comic">N/A</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para estadísticas detalladas -->
+        <div class="modal fade" id="detailed-stats-modal" tabindex="-1" aria-labelledby="detailedStatsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailedStatsModalLabel">Estadísticas Detalladas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <canvas id="comics-per-day-chart"></canvas>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <canvas id="time-per-editorial-chart"></canvas>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <canvas id="average-duration-chart"></canvas>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <canvas id="reading-frequency-chart"></canvas>
+                            </div>
+                            <div class="col-12">
+                                <h5>Top 5 Cómics Más Leídos</h5>
+                                <ul id="top-comics-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="modal fade" id="comic-detail-modal" tabindex="-1" aria-labelledby="comicDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title comic-detail-title" id="comicDetailModalLabel">Título del Cómic</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="comic-detail-modal-content">
+                    <!-- Los detalles del cómic se generarán dinámicamente -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="comic-button" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i> Cerrar
+                    </button>
+                    <button type="button" class="comic-button marvel-button" id="read-comic-btn">
+                        <i class="fas fa-book-open me-2"></i> Leer Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de calificación -->
+    <div class="modal fade" id="rating-modal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ratingModalLabel">¿Qué te pareció este cómic?</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="rating">
+                        <label><input type="radio" name="rating" value="1"><i class="fas fa-star"></i></label>
+                        <label><input type="radio" name="rating" value="2"><i class="fas fa-star"></i></label>
+                        <label><input type="radio" name="rating" value="3"><i class="fas fa-star"></i></label>
+                        <label><input type="radio" name="rating" value="4"><i class="fas fa-star"></i></label>
+                        <label><input type="radio" name="rating" value="5"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="comic-button" id="skip-rating-btn">Omitir</button>
+                    <button type="button" class="comic-button" id="submit-rating-btn">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de retroalimentación -->
+    <div class="modal fade" id="feedback-modal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">¡Gracias por tu opinión!</h5>
+                </div>
+                <div class="modal-body">
+                    <!-- El mensaje se generará dinámicamente -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="comic-button" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación personalizada -->
+    <div class="modal fade comic-confirm-modal" id="confirm-reset-modal" tabindex="-1" aria-labelledby="confirmResetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmResetModalLabel">
+                        <i class="fas fa-exclamation-triangle text-warning"></i> ¡Advertencia!
+                    </h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p>¿Estás seguro de que deseas reiniciar las estadísticas? Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="comic-button confirm-reset-btn" id="confirm-reset-btn">
+                        <i class="fas fa-check"></i> Sí, reiniciar
+                    </button>
+                    <button type="button" class="comic-button cancel-reset-btn" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const intro = document.getElementById("intro-animation");
+            setTimeout(() => {
+                intro.style.opacity = "0";
+                setTimeout(() => intro.style.display = "none", 500);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
